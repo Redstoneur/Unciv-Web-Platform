@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Unciv Web Platform">
+  <defs>
+    <linearGradient id="uwp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f9e6e"/>
+      <stop offset="1" stop-color="#1b5e8c"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 4 116 34v60L64 124 12 94V34Z" fill="url(#uwp-bg)" stroke="#0f3550" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M64 26 94 42H34Z" fill="#f4e7c5"/>
+  <rect x="34" y="44" width="60" height="6" rx="1" fill="#f4e7c5"/>
+  <rect x="38" y="53" width="9" height="30" fill="#f4e7c5"/>
+  <rect x="52" y="53" width="9" height="30" fill="#f4e7c5"/>
+  <rect x="66" y="53" width="9" height="30" fill="#f4e7c5"/>
+  <rect x="80" y="53" width="9" height="30" fill="#f4e7c5"/>
+  <rect x="30" y="86" width="68" height="7" rx="1" fill="#f4e7c5"/>
+  <path d="M80 70v34l8-8 6 13 6-3-6-12h11Z" fill="#ffd166" stroke="#0f3550" stroke-width="3" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,193 @@
+{
+  "app": {
+    "name": "Unciv Web Platform",
+    "unofficial": "Plateforme communautaire non officielle – non affiliée aux développeurs d’Unciv.",
+    "loading": "Chargement…"
+  },
+  "nav": {
+    "home": "Accueil",
+    "dashboard": "Jouer",
+    "settings": "Mon compte",
+    "admin": "Administration",
+    "login": "Connexion",
+    "register": "Inscription",
+    "logout": "Déconnexion",
+    "language": "Langue"
+  },
+  "languages": {
+    "fr": "Français",
+    "en": "English"
+  },
+  "home": {
+    "title": "Jouez à Unciv directement dans votre navigateur",
+    "subtitle": "Le jeu officiel, sans modification ni installation, avec vos sauvegardes conservées en ligne.",
+    "cta": "Créer un compte",
+    "ctaLogged": "Lancer une partie",
+    "features": {
+      "officialTitle": "Le jeu officiel",
+      "officialText": "La plateforme exécute le jar publié par le projet Unciv, mis à jour automatiquement à chaque nouvelle version.",
+      "freeTitle": "Aucune obligation",
+      "freeText": "Vos parties multijoueur restent accessibles depuis le jeu classique : PC, Linux ou Android.",
+      "multiTitle": "Multijoueur au choix",
+      "multiText": "Serveur officiel d’Unciv, serveur de la plateforme ou votre propre serveur."
+    },
+    "standaloneTitle": "Préférez-vous le jeu installé ?",
+    "standaloneText": "Unciv est libre et gratuit. Téléchargez-le depuis le dépôt officiel :",
+    "currentVersion": "Version actuelle : {{version}}",
+    "noVersion": "Aucune version n’est encore disponible sur la plateforme.",
+    "downloads": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "android": "Android",
+      "jar": "Jar (Java)",
+      "all": "Toutes les versions"
+    }
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Créer un compte",
+    "login": "E-mail ou pseudo",
+    "email": "E-mail",
+    "username": "Pseudo",
+    "password": "Mot de passe",
+    "passwordHint": "8 caractères minimum.",
+    "submitLogin": "Se connecter",
+    "submitRegister": "Créer mon compte",
+    "noAccount": "Pas encore de compte ?",
+    "haveAccount": "Déjà inscrit ?",
+    "registrationDisabled": "Les inscriptions sont actuellement fermées."
+  },
+  "dashboard": {
+    "title": "Bonjour {{username}}",
+    "sessionTitle": "Votre partie",
+    "noSession": "Aucune partie en cours.",
+    "start": "Lancer Unciv",
+    "resume": "Reprendre la partie",
+    "stop": "Arrêter la session",
+    "starting": "Démarrage du jeu… cela peut prendre quelques secondes.",
+    "running": "Le jeu est prêt.",
+    "version": "Version {{version}}",
+    "saveInfo": "Vos sauvegardes, mods et réglages sont conservés entre les sessions.",
+    "standaloneTitle": "Jouer aussi hors de la plateforme",
+    "standaloneText": "Pour retrouver vos parties multijoueur dans le jeu installé, renseignez ces valeurs dans Options → Multijoueur :",
+    "userId": "Identifiant de joueur Unciv",
+    "server": "Serveur multijoueur",
+    "copy": "Copier",
+    "copied": "Copié !"
+  },
+  "play": {
+    "back": "Retour",
+    "fullscreen": "Plein écran",
+    "stop": "Quitter",
+    "stopConfirm": "Arrêter la session ? Pensez à sauvegarder votre partie dans le jeu.",
+    "notRunning": "Aucune partie n’est en cours.",
+    "hint": "Astuce : sauvegardez régulièrement depuis le menu du jeu."
+  },
+  "settings": {
+    "title": "Mon compte",
+    "profile": "Profil",
+    "locale": "Langue de l’interface et du jeu",
+    "save": "Enregistrer",
+    "saved": "Modifications enregistrées.",
+    "multiplayerTitle": "Serveur multijoueur",
+    "multiplayerText": "Choisissez le serveur utilisé par vos parties multijoueur. Il s’applique au prochain lancement du jeu.",
+    "mode": {
+      "official": "Serveur officiel d’Unciv (recommandé)",
+      "platform": "Serveur de la plateforme",
+      "custom": "Mon propre serveur"
+    },
+    "platformUnavailable": "non disponible",
+    "customUrl": "Adresse du serveur",
+    "uncivUserId": "Identifiant de joueur Unciv",
+    "uncivUserIdHint": "Collez ici l’identifiant de votre jeu installé pour retrouver vos parties existantes.",
+    "passwordTitle": "Changer de mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "changePassword": "Changer le mot de passe",
+    "passwordChanged": "Mot de passe modifié.",
+    "dangerTitle": "Supprimer mon compte",
+    "dangerText": "Votre compte, vos sauvegardes et vos mods sur la plateforme seront définitivement supprimés.",
+    "delete": "Supprimer définitivement",
+    "deleteConfirm": "Cette action est irréversible. Continuer ?"
+  },
+  "admin": {
+    "title": "Administration",
+    "overview": "Vue d’ensemble",
+    "users": "Utilisateurs",
+    "sessions": "Sessions actives",
+    "versions": "Versions d’Unciv",
+    "currentVersion": "Version active",
+    "docker": "Docker",
+    "available": "disponible",
+    "unavailable": "indisponible",
+    "checkUpdates": "Vérifier les mises à jour",
+    "checking": "Vérification…",
+    "updateResult": "Dernière version : {{latest}}",
+    "installTag": "Installer une version (tag)",
+    "install": "Installer",
+    "activate": "Activer",
+    "active": "Active",
+    "status": {
+      "downloading": "Téléchargement",
+      "ready": "Prête",
+      "failed": "Échec",
+      "starting": "Démarrage",
+      "running": "En cours",
+      "stopped": "Arrêtée"
+    },
+    "columns": {
+      "tag": "Version",
+      "published": "Publiée le",
+      "status": "État",
+      "user": "Utilisateur",
+      "email": "E-mail",
+      "role": "Rôle",
+      "created": "Créé le",
+      "started": "Démarrée le",
+      "lastSeen": "Dernière activité",
+      "actions": "Actions"
+    },
+    "roles": {
+      "user": "Joueur",
+      "admin": "Admin"
+    },
+    "makeAdmin": "Passer admin",
+    "makeUser": "Retirer admin",
+    "deleteUser": "Supprimer",
+    "deleteUserConfirm": "Supprimer l’utilisateur {{username}} et ses données ?",
+    "stopSession": "Arrêter",
+    "empty": "Rien à afficher."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "back": "Retour à l’accueil"
+  },
+  "footer": {
+    "license": "Code source sous licence MPL-2.0.",
+    "uncivSource": "Code source d’Unciv"
+  },
+  "errors": {
+    "VALIDATION_ERROR": "Certaines informations sont invalides.",
+    "UNAUTHORIZED": "Veuillez vous connecter.",
+    "FORBIDDEN": "Accès refusé.",
+    "NOT_FOUND": "Élément introuvable.",
+    "RATE_LIMITED": "Trop de tentatives, réessayez dans un instant.",
+    "INTERNAL_ERROR": "Une erreur inattendue est survenue.",
+    "AUTH_INVALID_CREDENTIALS": "Identifiants incorrects.",
+    "AUTH_EMAIL_TAKEN": "Cet e-mail est déjà utilisé.",
+    "AUTH_USERNAME_TAKEN": "Ce pseudo est déjà utilisé.",
+    "AUTH_REGISTRATION_DISABLED": "Les inscriptions sont fermées.",
+    "AUTH_WRONG_PASSWORD": "Mot de passe incorrect.",
+    "SESSION_ALREADY_ACTIVE": "Une partie est déjà en cours.",
+    "SESSION_CAPACITY_REACHED": "La plateforme est complète, réessayez plus tard.",
+    "SESSION_NOT_FOUND": "Aucune partie en cours.",
+    "SESSION_START_FAILED": "Le jeu n’a pas pu démarrer.",
+    "VERSION_NOT_AVAILABLE": "Aucune version du jeu n’est encore installée.",
+    "VERSION_NOT_FOUND": "Version introuvable.",
+    "VERSION_NOT_READY": "Cette version n’est pas prête.",
+    "MULTIPLAYER_PLATFORM_DISABLED": "Le serveur multijoueur de la plateforme n’est pas activé.",
+    "MULTIPLAYER_CUSTOM_URL_REQUIRED": "Indiquez l’adresse de votre serveur.",
+    "CANNOT_DEMOTE_SELF": "Vous ne pouvez pas retirer votre propre rôle d’admin.",
+    "CANNOT_DELETE_SELF": "Supprimez votre compte depuis la page « Mon compte »."
+  }
+}

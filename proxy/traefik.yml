@@ -1,0 +1,28 @@
+# Static Traefik configuration.
+# Static routes (web, api) live in dynamic/routes.yml; game containers and the optional
+# multiplayer server are discovered through Docker labels.
+
+entryPoints:
+  web:
+    address: ':80'
+    forwardedHeaders:
+      insecure: false
+
+providers:
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+  docker:
+    exposedByDefault: false
+    constraints: "LabelRegex(`unciv-web-platform.role`, `.+`)"
+
+api:
+  dashboard: false
+
+ping:
+  entryPoint: web
+
+log:
+  level: INFO
+
+accessLog: {}

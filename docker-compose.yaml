@@ -1,0 +1,132 @@
+# Unciv Web Platform - global stack.
+#   docker compose up -d --build                              # platform
+#   docker compose --profile multiplayer up -d --build        # + optional multiplayer server
+
+name: unciv-web-platform
+
+services:
+  proxy:
+    build: ./proxy
+    restart: unless-stopped
+    ports:
+      - '${HTTP_PORT:-80}:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [edge, games]
+    depends_on:
+      api:
+        condition: service_healthy
+
+  web:
+    build: ./web
+    restart: unless-stopped
+    networks: [edge]
+
+  api:
+    build: ./api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      DATABASE_URL: postgres://${POSTGRES_USER:-unciv}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@db:5432/${POSTGRES_DB:-unciv}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}
+      REGISTRATION_ENABLED: ${REGISTRATION_ENABLED:-true}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      UPDATE_CHECK_INTERVAL_MINUTES: ${UPDATE_CHECK_INTERVAL_MINUTES:-360}
+      AUTO_ACTIVATE_UPDATES: ${AUTO_ACTIVATE_UPDATES:-true}
+      RELEASES_DIR: /releases
+      RELEASES_VOLUME: unciv-releases
+      DOCKER_SOCKET: tcp://docker-proxy:2375
+      GAME_IMAGE: unciv-web-platform/game:latest
+      GAME_NETWORK: unciv-games
+      GAME_CPU_LIMIT: ${GAME_CPU_LIMIT:-1}
+      GAME_MEMORY_MB: ${GAME_MEMORY_MB:-1536}
+      GAME_SCREEN_WIDTH: ${GAME_SCREEN_WIDTH:-1600}
+      GAME_SCREEN_HEIGHT: ${GAME_SCREEN_HEIGHT:-900}
+      MAX_ACTIVE_SESSIONS: ${MAX_ACTIVE_SESSIONS:-10}
+      SESSION_IDLE_TIMEOUT_MINUTES: ${SESSION_IDLE_TIMEOUT_MINUTES:-15}
+      SESSION_MAX_DURATION_HOURS: ${SESSION_MAX_DURATION_HOURS:-8}
+      MULTIPLAYER_SERVER_ENABLED: ${MULTIPLAYER_SERVER_ENABLED:-false}
+      MULTIPLAYER_SERVER_PUBLIC_URL: ${MULTIPLAYER_SERVER_PUBLIC_URL:-}
+      MULTIPLAYER_SERVER_GAME_URL: ${MULTIPLAYER_SERVER_GAME_URL:-http://multiplayer:8080}
+    volumes:
+      - releases:/releases
+    networks: [edge, backend, docker]
+    depends_on:
+      db:
+        condition: service_healthy
+      docker-proxy:
+        condition: service_started
+
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-unciv}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: ${POSTGRES_DB:-unciv}
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks: [backend]
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Restricted Docker API for the backend (containers + volumes only).
+  docker-proxy:
+    image: tecnativa/docker-socket-proxy:v0.5.0
+    restart: unless-stopped
+    environment:
+      CONTAINERS: 1
+      VOLUMES: 1
+      POST: 1
+      ALLOW_START: 1
+      ALLOW_STOP: 1
+      ALLOW_RESTARTS: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [docker]
+
+  # Image of the per-user game containers. Never runs as a service (scale 0):
+  # it is only built here and started on demand by the API.
+  game:
+    build: ./game
+    image: unciv-web-platform/game:latest
+    scale: 0
+
+  # Optional: platform hosted multiplayer server (official UncivServer.jar).
+  multiplayer:
+    build: ./multiplayer
+    profiles: [multiplayer]
+    restart: unless-stopped
+    volumes:
+      - releases:/releases:ro
+      - multiplayer-data:/data
+    networks: [games]
+    labels:
+      unciv-web-platform.role: multiplayer
+      traefik.enable: 'true'
+      traefik.docker.network: unciv-games
+      traefik.http.routers.multiplayer.rule: PathPrefix(`/multiplayer/`)
+      traefik.http.routers.multiplayer.entrypoints: web
+      traefik.http.routers.multiplayer.middlewares: multiplayer-strip@file
+      traefik.http.services.multiplayer.loadbalancer.server.port: '8080'
+
+networks:
+  edge:
+  games:
+    name: unciv-games
+  backend:
+    internal: true
+  docker:
+    internal: true
+
+volumes:
+  releases:
+    name: unciv-releases
+  db-data:
+  multiplayer-data:
