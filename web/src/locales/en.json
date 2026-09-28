@@ -1,0 +1,193 @@
+{
+  "app": {
+    "name": "Unciv Web Platform",
+    "unofficial": "Unofficial community platform – not affiliated with the Unciv developers.",
+    "loading": "Loading…"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Play",
+    "settings": "My account",
+    "admin": "Administration",
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out",
+    "language": "Language"
+  },
+  "languages": {
+    "fr": "Français",
+    "en": "English"
+  },
+  "home": {
+    "title": "Play Unciv right in your browser",
+    "subtitle": "The official game, unmodified and without installation, with your saves kept online.",
+    "cta": "Create an account",
+    "ctaLogged": "Start playing",
+    "features": {
+      "officialTitle": "The official game",
+      "officialText": "The platform runs the jar published by the Unciv project, updated automatically with every new release.",
+      "freeTitle": "No lock-in",
+      "freeText": "Your multiplayer games remain reachable from the regular game: PC, Linux or Android.",
+      "multiTitle": "Your choice of multiplayer",
+      "multiText": "The official Unciv server, the platform server or your own server."
+    },
+    "standaloneTitle": "Prefer the installed game?",
+    "standaloneText": "Unciv is free and open source. Download it from the official repository:",
+    "currentVersion": "Current version: {{version}}",
+    "noVersion": "No version is available on the platform yet.",
+    "downloads": {
+      "windows": "Windows",
+      "linux": "Linux",
+      "android": "Android",
+      "jar": "Jar (Java)",
+      "all": "All releases"
+    }
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "login": "Email or username",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "passwordHint": "At least 8 characters.",
+    "submitLogin": "Log in",
+    "submitRegister": "Create my account",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already registered?",
+    "registrationDisabled": "Registrations are currently closed."
+  },
+  "dashboard": {
+    "title": "Hello {{username}}",
+    "sessionTitle": "Your game",
+    "noSession": "No game running.",
+    "start": "Launch Unciv",
+    "resume": "Resume game",
+    "stop": "Stop session",
+    "starting": "Starting the game… this may take a few seconds.",
+    "running": "The game is ready.",
+    "version": "Version {{version}}",
+    "saveInfo": "Your saves, mods and settings are kept between sessions.",
+    "standaloneTitle": "Also play outside the platform",
+    "standaloneText": "To find your multiplayer games in the installed game, enter these values in Options → Multiplayer:",
+    "userId": "Unciv player ID",
+    "server": "Multiplayer server",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "play": {
+    "back": "Back",
+    "fullscreen": "Fullscreen",
+    "stop": "Quit",
+    "stopConfirm": "Stop the session? Remember to save your game in Unciv first.",
+    "notRunning": "No game is running.",
+    "hint": "Tip: save regularly from the game menu."
+  },
+  "settings": {
+    "title": "My account",
+    "profile": "Profile",
+    "locale": "Interface and game language",
+    "save": "Save",
+    "saved": "Changes saved.",
+    "multiplayerTitle": "Multiplayer server",
+    "multiplayerText": "Choose the server used by your multiplayer games. It applies the next time the game starts.",
+    "mode": {
+      "official": "Official Unciv server (recommended)",
+      "platform": "Platform server",
+      "custom": "My own server"
+    },
+    "platformUnavailable": "not available",
+    "customUrl": "Server address",
+    "uncivUserId": "Unciv player ID",
+    "uncivUserIdHint": "Paste the ID of your installed game here to keep your existing games.",
+    "passwordTitle": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "changePassword": "Change password",
+    "passwordChanged": "Password changed.",
+    "dangerTitle": "Delete my account",
+    "dangerText": "Your account, saves and mods on the platform will be permanently deleted.",
+    "delete": "Delete permanently",
+    "deleteConfirm": "This cannot be undone. Continue?"
+  },
+  "admin": {
+    "title": "Administration",
+    "overview": "Overview",
+    "users": "Users",
+    "sessions": "Active sessions",
+    "versions": "Unciv versions",
+    "currentVersion": "Active version",
+    "docker": "Docker",
+    "available": "available",
+    "unavailable": "unavailable",
+    "checkUpdates": "Check for updates",
+    "checking": "Checking…",
+    "updateResult": "Latest version: {{latest}}",
+    "installTag": "Install a version (tag)",
+    "install": "Install",
+    "activate": "Activate",
+    "active": "Active",
+    "status": {
+      "downloading": "Downloading",
+      "ready": "Ready",
+      "failed": "Failed",
+      "starting": "Starting",
+      "running": "Running",
+      "stopped": "Stopped"
+    },
+    "columns": {
+      "tag": "Version",
+      "published": "Published",
+      "status": "Status",
+      "user": "User",
+      "email": "Email",
+      "role": "Role",
+      "created": "Created",
+      "started": "Started",
+      "lastSeen": "Last activity",
+      "actions": "Actions"
+    },
+    "roles": {
+      "user": "Player",
+      "admin": "Admin"
+    },
+    "makeAdmin": "Make admin",
+    "makeUser": "Remove admin",
+    "deleteUser": "Delete",
+    "deleteUserConfirm": "Delete user {{username}} and their data?",
+    "stopSession": "Stop",
+    "empty": "Nothing to show."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  },
+  "footer": {
+    "license": "Source code under the MPL-2.0 license.",
+    "uncivSource": "Unciv source code"
+  },
+  "errors": {
+    "VALIDATION_ERROR": "Some information is invalid.",
+    "UNAUTHORIZED": "Please log in.",
+    "FORBIDDEN": "Access denied.",
+    "NOT_FOUND": "Not found.",
+    "RATE_LIMITED": "Too many attempts, please retry in a moment.",
+    "INTERNAL_ERROR": "An unexpected error occurred.",
+    "AUTH_INVALID_CREDENTIALS": "Invalid credentials.",
+    "AUTH_EMAIL_TAKEN": "This email is already in use.",
+    "AUTH_USERNAME_TAKEN": "This username is already taken.",
+    "AUTH_REGISTRATION_DISABLED": "Registrations are closed.",
+    "AUTH_WRONG_PASSWORD": "Wrong password.",
+    "SESSION_ALREADY_ACTIVE": "A game is already running.",
+    "SESSION_CAPACITY_REACHED": "The platform is full, please retry later.",
+    "SESSION_NOT_FOUND": "No game running.",
+    "SESSION_START_FAILED": "The game could not start.",
+    "VERSION_NOT_AVAILABLE": "No game version is installed yet.",
+    "VERSION_NOT_FOUND": "Version not found.",
+    "VERSION_NOT_READY": "This version is not ready.",
+    "MULTIPLAYER_PLATFORM_DISABLED": "The platform multiplayer server is not enabled.",
+    "MULTIPLAYER_CUSTOM_URL_REQUIRED": "Please enter your server address.",
+    "CANNOT_DEMOTE_SELF": "You cannot remove your own admin role.",
+    "CANNOT_DELETE_SELF": "Delete your own account from the “My account” page."
+  }
+}

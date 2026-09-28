@@ -1,0 +1,32 @@
+http:
+  routers:
+    api:
+      rule: 'PathPrefix(`/api/`)'
+      entryPoints: [web]
+      service: api
+      priority: 100
+    web:
+      rule: 'PathPrefix(`/`)'
+      entryPoints: [web]
+      service: web
+      priority: 1
+
+  middlewares:
+    # Only the owner of an active session can reach /play/<sessionId>/… (see api/src/modules/sessions/routes.ts).
+    game-auth:
+      forwardAuth:
+        address: 'http://api:3000/api/sessions/authorize'
+        trustForwardHeader: false
+    multiplayer-strip:
+      stripPrefix:
+        prefixes: ['/multiplayer']
+
+  services:
+    api:
+      loadBalancer:
+        servers:
+          - url: 'http://api:3000'
+    web:
+      loadBalancer:
+        servers:
+          - url: 'http://web:80'
