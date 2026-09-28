@@ -12,6 +12,7 @@ export function HomePage() {
   return (
     <>
       <section className="hero">
+        <img src="/logo.svg" alt="" width={112} height={112} className="hero-logo" />
         <h1>{t('home.title')}</h1>
         <p className="lead">{t('home.subtitle')}</p>
         <Link to={user ? '/dashboard' : '/register'} className="btn btn-primary btn-large">

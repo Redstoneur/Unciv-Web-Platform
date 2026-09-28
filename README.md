@@ -1,4 +1,33 @@
-# Unciv-Web-Platform
+<p align="center">
+  <img src="web/public/logo.svg" alt="Unciv Web Platform logo" width="128" height="128" />
+</p>
+
+<h1 align="center">Unciv-Web-Platform</h1>
+
+<p align="center">
+  <a href="https://app.codacy.com/gh/Redstoneur/Unciv-Web-Platform/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/43452bd92b5940acb55d9d60aef267a8" alt="Codacy Badge" /></a>
+  <a href="api/package.json"><img src="https://img.shields.io/github/package-json/v/Redstoneur/Unciv-Web-Platform?filename=api%2Fpackage.json&label=version" alt="Version" /></a>
+  <a href="https://github.com/yairm210/Unciv/releases/latest"><img src="https://img.shields.io/github/v/release/yairm210/Unciv?label=Unciv&logo=github" alt="Latest Unciv release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Redstoneur/Unciv-Web-Platform" alt="License" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform"><img src="https://img.shields.io/github/repo-size/Redstoneur/Unciv-Web-Platform" alt="Repository size" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform"><img src="https://img.shields.io/github/languages/code-size/Redstoneur/Unciv-Web-Platform" alt="Code size" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform"><img src="https://img.shields.io/github/languages/top/Redstoneur/Unciv-Web-Platform" alt="Top language" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform/commits"><img src="https://img.shields.io/github/last-commit/Redstoneur/Unciv-Web-Platform" alt="Last commit" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform/issues"><img src="https://img.shields.io/github/issues/Redstoneur/Unciv-Web-Platform" alt="Issues" /></a>
+  <a href="https://github.com/Redstoneur/Unciv-Web-Platform/stargazers"><img src="https://img.shields.io/github/stars/Redstoneur/Unciv-Web-Platform" alt="Stars" /></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-24_LTS-5FA04E?logo=nodedotjs&logoColor=white" alt="Node.js 24 LTS" />
+  <img src="https://img.shields.io/badge/TypeScript-6_%7C_7-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Fastify-5-000000?logo=fastify&logoColor=white" alt="Fastify 5" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React 19" />
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite 8" />
+  <img src="https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL 18" />
+  <img src="https://img.shields.io/badge/Java-25_LTS-ED8B00?logo=openjdk&logoColor=white" alt="Java 25 LTS" />
+  <img src="https://img.shields.io/badge/Traefik-3.7-24A1C1?logo=traefikproxy&logoColor=white" alt="Traefik 3.7" />
+  <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker Compose" />
+</p>
 
 Web platform to play the original [Unciv](https://github.com/yairm210/Unciv) desktop game in the browser, with user
 accounts, automatic game updates and an optional multiplayer server.
@@ -28,7 +57,7 @@ single `docker-compose.yaml`.
 |----------------|------------------------------------------------------------------------------------------|
 | `api/`         | Node.js + TypeScript + Fastify API: accounts, sessions, updates, admin (PostgreSQL)      |
 | `web/`         | Vite + React + TypeScript front end (i18next), served by nginx                           |
-| `game/`        | Game image: JRE 21, Xvfb, openbox, x11vnc, noVNC; one container per active player        |
+| `game/`        | Game image: JRE 25, Xvfb, openbox, x11vnc, noVNC; one container per active player        |
 | `multiplayer/` | Optional official `UncivServer.jar` (compose profile `multiplayer`)                      |
 | `proxy/`       | Traefik: routes `/`, `/api`, `/multiplayer` and `/play/<session>` (forward auth)         |
 

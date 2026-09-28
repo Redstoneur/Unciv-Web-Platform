@@ -4,7 +4,7 @@
 # currently activated by the platform (read from /releases/current).
 # Players can keep using the official public server or any other server instead.
 
-FROM eclipse-temurin:21-jre-noble
+FROM eclipse-temurin:25-jre-noble
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends curl tini \

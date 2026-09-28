@@ -22,6 +22,7 @@ export function Layout() {
       </div>
       <header className="header">
         <Link to="/" className="brand">
+          <img src="/logo.svg" alt="" width={36} height={36} className="brand-logo" />
           {t('app.name')}
         </Link>
         <nav className="nav">

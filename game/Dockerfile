@@ -5,17 +5,23 @@
 # it is mounted read-only from the releases volume (/releases/<version>/Unciv.jar),
 # so new Unciv versions never require rebuilding this image.
 
-FROM eclipse-temurin:21-jre-noble
+FROM eclipse-temurin:25-jre-noble
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    xvfb x11vnc openbox novnc python3-websockify \
+    xvfb x11vnc openbox python3-websockify \
     libgl1 libgl1-mesa-dri libglu1-mesa \
     libxcursor1 libxrandr2 libxi6 libxxf86vm1 libxinerama1 libxtst6 \
     fonts-dejavu-core fonts-noto-core \
     jq curl procps tini xdotool \
   && rm -rf /var/lib/apt/lists/*
+
+# noVNC web client, pinned to the latest upstream release (Ubuntu ships an old one).
+ARG NOVNC_VERSION=1.7.0
+RUN mkdir -p /usr/share/novnc \
+  && curl -fsSL "https://github.com/novnc/noVNC/archive/refs/tags/v${NOVNC_VERSION}.tar.gz" \
+    | tar -xz --strip-components=1 -C /usr/share/novnc
 
 # The game runs as an unprivileged user; /data is the per-user persistent volume
 # (saves, mods, GameSettings.json). Its ownership is copied to fresh named volumes.
