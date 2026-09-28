@@ -22,7 +22,7 @@ accounts, automatic game updates and an optional multiplayer server.
 ## Architecture
 
 Monorepo, one folder per component, each with its own `package.json` (npm) and `Dockerfile`, orchestrated by a
-single `compose.yaml`.
+single `docker-compose.yaml`.
 
 | Folder         | Role                                                                                     |
 |----------------|------------------------------------------------------------------------------------------|
